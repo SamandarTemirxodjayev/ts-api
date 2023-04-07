@@ -23,7 +23,7 @@ export const register = async (req: express.Request, res: express.Response) => {
       email,
       password
     })
-    return res.status(200).json(user).end();
+    return res.status(200).json({"register": "succes, login to get token"}).end();
   } catch (error) {
     console.log(error);
     return res.status(500).send(error);
