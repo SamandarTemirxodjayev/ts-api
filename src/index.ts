@@ -6,6 +6,7 @@ import compression from 'compression'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import router from './router'
+import appswagger from './swagger'
 
 const app = express()
 const PORT: string | number = process.env.PORT || 3000
@@ -30,3 +31,4 @@ mongoose.connect(MONGO_URL)
 mongoose.connection.on('error', (error: Error) => console.error(error))
 
 app.use('/', router())
+app.use('/api-docs/', appswagger)

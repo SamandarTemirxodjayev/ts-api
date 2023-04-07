@@ -11,6 +11,7 @@ const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const router_1 = __importDefault(require("./router"));
+const swagger_1 = __importDefault(require("./swagger"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL || 'mongodb+srv://Samandar:Samandar0321@cluster0.v86wyyu.mongodb.net/?retryWrites=true&w=majority';
@@ -31,4 +32,5 @@ mongoose_1.default.connect(MONGO_URL)
 });
 mongoose_1.default.connection.on('error', (error) => console.error(error));
 app.use('/', (0, router_1.default)());
+app.use('/api-docs/', swagger_1.default);
 //# sourceMappingURL=index.js.map

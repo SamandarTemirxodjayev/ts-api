@@ -14,20 +14,9 @@ const UserSchema = new mongoose_1.default.Schema({
         type: String,
         required: true
     },
-    authenfication: {
-        password: {
-            type: String,
-            required: true,
-            select: false
-        },
-        salt: {
-            type: String,
-            select: false
-        },
-        sessionToken: {
-            type: String,
-            select: false
-        }
+    password: {
+        type: String,
+        required: true,
     }
 });
 exports.UserModel = mongoose_1.default.model("User", UserSchema);
